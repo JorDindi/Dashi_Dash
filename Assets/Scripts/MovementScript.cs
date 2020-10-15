@@ -17,11 +17,19 @@ public class MovementScript : MonoBehaviour
     [Header("Power Variables")]
     [SerializeField] private float DashForce;
 
+    [SerializeField] private GameObject jump;
+    [SerializeField] private GameObject dash;
     
+    
+    
+
+
+
 
     private void Start()
     {
         isAired = false;
+        dash.SetActive(false);
     }
 
 
@@ -62,6 +70,8 @@ public class MovementScript : MonoBehaviour
             isGrounded = !isGrounded;
             isAired = true;
             canDash = true;
+            jump.SetActive(false);
+            dash.SetActive(true);
         }
     }
 
@@ -73,6 +83,8 @@ public class MovementScript : MonoBehaviour
             isGrounded = true;
             isAired = false;
             isDashing = false;
+            dash.SetActive(false);
+            jump.SetActive(true);
         }
 
         if (other.CompareTag("FinishLine"))

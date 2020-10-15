@@ -12,9 +12,9 @@ public class FinishLineScript : MonoBehaviour
     
 
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag.Equals("Player") && (scoreManager.wallsBroke >= scoreManager.neededWalls))     
+        if (other.CompareTag("Player") && scoreManager.wallsBroke >= scoreManager.neededWalls)     
         {
             anim.SetTrigger("DisplayNext");
         }
